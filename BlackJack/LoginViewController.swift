@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  BlackJack
 //
 //  Created by mcs on 3/22/20.
@@ -8,15 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
     
-    let mainView = MainView()
+    let loginView = LoginView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        mainView.controller = self
+
+        // Do any additional setup after loading the view.
     }
-
+    
 }
-
