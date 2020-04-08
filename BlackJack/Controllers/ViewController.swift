@@ -7,16 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
     
-    /**
-     TODO:
-        - create a Play object and store in Realm. This will had dHand, pHand, moneyWon, moneyBet, timeStamp
-     */
-    
     let loginView = LoginView()
     let mainView = MainView()
+    var realmDB: Realm!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +22,21 @@ class ViewController: UIViewController {
         mainView.controller = self
     }
     
-    func loadMainScreen() {
+    func loadMainScreen(profile: Profile) {
+        do {
+            realmDB = try! Realm()
+            
+            let profile = realmDB.objects(Profile.self).filter("name == \(profile.username)")
+            if profile.count == 0 {
+                try realmDB.write {
+                     realmDB.add(profile)
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        
         view = mainView
         mainView.controller = self
     }
 }
-

@@ -15,7 +15,8 @@
 		045A74132427D9C2006A89E4 /* BlackJackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A74122427D9C2006A89E4 /* BlackJackUITests.swift */; };
 		048C418C242828EC00E8B376 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C418B242828EC00E8B376 /* MainView.swift */; };
 		049E602A243CF599007EE9A3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E6029243CF599007EE9A3 /* LoginView.swift */; };
-		049E602C243CF5B6007EE9A3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E602B243CF5B6007EE9A3 /* LoginViewController.swift */; };
+		049E602E243D51F4007EE9A3 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E602D243D51F4007EE9A3 /* Profile.swift */; };
+		049E6031243D5267007EE9A3 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E6030243D5267007EE9A3 /* Play.swift */; };
 		7C61161D422253C7FCB0D512 /* Pods_BlackJack_BlackJackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5BAF1AD2535CD01783D533 /* Pods_BlackJack_BlackJackUITests.framework */; };
 		AE9A8570C7B4713D7F75B72D /* Pods_BlackJack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9F8E77668EA6DEF8FA61C6 /* Pods_BlackJack.framework */; };
 		C94490F7F3287CF4E8B2265C /* Pods_BlackJackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEB3BCEA6488D074C3F285B /* Pods_BlackJackTests.framework */; };
@@ -53,7 +54,8 @@
 		045A74142427D9C2006A89E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		048C418B242828EC00E8B376 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		049E6029243CF599007EE9A3 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		049E602B243CF5B6007EE9A3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		049E602D243D51F4007EE9A3 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		049E6030243D5267007EE9A3 /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
 		42E47A1981B234230CCBD296 /* Pods-BlackJack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackJack.release.xcconfig"; path = "Target Support Files/Pods-BlackJack/Pods-BlackJack.release.xcconfig"; sourceTree = "<group>"; };
 		71F96F593F9515E4501EAA3E /* Pods-BlackJack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackJack.debug.xcconfig"; path = "Target Support Files/Pods-BlackJack/Pods-BlackJack.debug.xcconfig"; sourceTree = "<group>"; };
 		7E6E9FC5BF7ED6CBDBF9BE99 /* Pods-BlackJackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackJackTests.debug.xcconfig"; path = "Target Support Files/Pods-BlackJackTests/Pods-BlackJackTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -122,8 +124,9 @@
 				045A73EF2427D9BC006A89E4 /* SceneDelegate.swift */,
 				0496C5E1243CD3AB002C9925 /* Controllers */,
 				0496C5E0243CD39F002C9925 /* Views */,
-				045A73F92427D9C1006A89E4 /* Assets.xcassets */,
+				049E602F243D51FA007EE9A3 /* Model */,
 				045A73FE2427D9C1006A89E4 /* Info.plist */,
+				045A73F92427D9C1006A89E4 /* Assets.xcassets */,
 			);
 			path = BlackJack;
 			sourceTree = "<group>";
@@ -158,10 +161,18 @@
 		0496C5E1243CD3AB002C9925 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				049E602B243CF5B6007EE9A3 /* LoginViewController.swift */,
 				045A73F12427D9BC006A89E4 /* ViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		049E602F243D51FA007EE9A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				049E602D243D51F4007EE9A3 /* Profile.swift */,
+				049E6030243D5267007EE9A3 /* Play.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		52438D3C7D964A3BA66C8A38 /* Pods */ = {
@@ -427,8 +438,9 @@
 				049E602A243CF599007EE9A3 /* LoginView.swift in Sources */,
 				045A73F22427D9BC006A89E4 /* ViewController.swift in Sources */,
 				045A73EE2427D9BC006A89E4 /* AppDelegate.swift in Sources */,
+				049E6031243D5267007EE9A3 /* Play.swift in Sources */,
+				049E602E243D51F4007EE9A3 /* Profile.swift in Sources */,
 				048C418C242828EC00E8B376 /* MainView.swift in Sources */,
-				049E602C243CF5B6007EE9A3 /* LoginViewController.swift in Sources */,
 				045A73F02427D9BC006A89E4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
