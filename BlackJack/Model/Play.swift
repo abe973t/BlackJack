@@ -9,16 +9,35 @@
 import Foundation
 import RealmSwift
 
-enum Suite {
-    case Club
-    case Spades
-    case Hearts
-    case Diamonds
+enum Suite: String {
+    case Club = "C"
+    case Spades = "S"
+    case Hearts = "H"
+    case Diamonds = "D"
 }
 
 struct Card {
     let suite: Suite
     let number: Int
+}
+
+enum ChipDenom: Int {
+    case nickel = 5
+    case quarter = 25
+    case fifty = 50
+    case hundo = 100
+}
+
+struct Chip: Equatable {
+    let denom: ChipDenom
+    let value: Int
+    var quantity: Int
+    
+    init(denom: ChipDenom, quantity: Int) {
+        self.denom = denom
+        value = denom.rawValue
+        self.quantity = quantity
+    }
 }
 
 class Play: Object {

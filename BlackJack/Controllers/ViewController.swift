@@ -19,18 +19,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         view = loginView
-        mainView.controller = self
+        loginView.controller = self
     }
     
     func loadMainScreen(profile: Profile) {
         do {
             realmDB = try! Realm()
             
-            let profile = realmDB.objects(Profile.self).filter("name == \(profile.username)")
-            if profile.count == 0 {
+            let profiles = realmDB.objects(Profile.self).filter("username == '\(profile.username)'")
+            if profiles.count == 0 {
                 try realmDB.write {
-                     realmDB.add(profile)
+                    realmDB.add(profile)
+                    mainView.profile = profile
                 }
+            } else {
+                mainView.profile = profiles.first!
             }
         } catch {
             print(error.localizedDescription)
