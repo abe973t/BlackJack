@@ -89,18 +89,22 @@ class MainView: UIView {
         
         let fiveChip = UIButton()
         fiveChip.translatesAutoresizingMaskIntoConstraints = false
+        fiveChip.addTarget(self, action: #selector(chipBet(sender:)), for: .touchUpInside)
         fiveChip.setImage(#imageLiteral(resourceName: "5chip"), for: .normal)
         
         let quarterChip = UIButton()
         quarterChip.translatesAutoresizingMaskIntoConstraints = false
+        quarterChip.addTarget(self, action: #selector(chipBet(sender:)), for: .touchUpInside)
         quarterChip.setImage(#imageLiteral(resourceName: "25chip"), for: .normal)
         
         let fiftyChip = UIButton()
         fiftyChip.translatesAutoresizingMaskIntoConstraints = false
+        fiftyChip.addTarget(self, action: #selector(chipBet(sender:)), for: .touchUpInside)
         fiftyChip.setImage(#imageLiteral(resourceName: "50chip"), for: .normal)
         
         let hundoChip = UIButton()
         hundoChip.translatesAutoresizingMaskIntoConstraints = false
+        hundoChip.addTarget(self, action: #selector(chipBet(sender:)), for: .touchUpInside)
         hundoChip.setImage(#imageLiteral(resourceName: "100chip"), for: .normal)
         
         stackView.addArrangedSubview(fiveChip)
@@ -131,6 +135,28 @@ class MainView: UIView {
         
         return view
     }()
+    
+    @objc func chipBet(sender: UIButton) {
+        betChip.setImage(sender.image(for: .normal), for: .normal)
+    }
+    
+    let betCircleView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        view.layer.cornerRadius = 75
+        view.layer.borderColor = UIColor.red.cgColor
+        view.layer.borderWidth = 4
+        
+        return view
+    }()
+    
+    let betChip: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.layer.cornerRadius = 50
+        return btn
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -152,9 +178,12 @@ class MainView: UIView {
         addSubview(settingsButton)
         addSubview(deckImgView)
         addSubview(chipsViewContainer)
+        addSubview(betCircleView)
         
         cashView.addSubview(cashLabel)
         cashView.addSubview(cashAmountLabel)
+        
+        betCircleView.addSubview(betChip)
         
         addConstraints()
     }
@@ -192,7 +221,21 @@ class MainView: UIView {
             chipsViewContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             chipsViewContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             chipsViewContainer.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            chipsViewContainer.heightAnchor.constraint(equalToConstant: 100)
+            chipsViewContainer.heightAnchor.constraint(equalToConstant: 100),
+            
+            betCircleView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            betCircleView.bottomAnchor.constraint(equalTo: chipsViewContainer.topAnchor, constant: -15),
+            betCircleView.heightAnchor.constraint(equalToConstant: 150),
+            betCircleView.widthAnchor.constraint(equalToConstant: 150),
+        ])
+        
+        NSLayoutConstraint.activate([
+            // add betChip to betcirview when new chip is bet
+            // add constants to centerx & y everytime diff is bet
+            betChip.centerXAnchor.constraint(equalTo: betCircleView.centerXAnchor),
+            betChip.centerYAnchor.constraint(equalTo: betCircleView.centerYAnchor),
+            betChip.heightAnchor.constraint(equalToConstant: 100),
+            betChip.widthAnchor.constraint(equalToConstant: 100)
         ])
     }
 }
