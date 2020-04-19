@@ -14,10 +14,18 @@ class ViewController: UIViewController {
     let loginView = LoginView()
     let mainView = MainView()
     var realmDB: Realm!
+    
+    /**
+        TODO:
+            - finish UI
+            - download chip images
+            - show dealer hand w one facing down
+            
+     */
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view = loginView
         loginView.controller = self
     }
