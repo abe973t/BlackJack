@@ -126,6 +126,7 @@
 				045A73EF2427D9BC006A89E4 /* SceneDelegate.swift */,
 				0496C5E1243CD3AB002C9925 /* Controllers */,
 				0496C5E0243CD39F002C9925 /* Views */,
+				04AB452B244BF1270089EB9D /* View Model */,
 				049E602F243D51FA007EE9A3 /* Model */,
 				045A73FE2427D9C1006A89E4 /* Info.plist */,
 				045A73F92427D9C1006A89E4 /* Assets.xcassets */,
@@ -173,9 +174,16 @@
 			children = (
 				049E602D243D51F4007EE9A3 /* Profile.swift */,
 				049E6030243D5267007EE9A3 /* Play.swift */,
-				040CA4FA243E0BA3009258C6 /* ViewModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		04AB452B244BF1270089EB9D /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				040CA4FA243E0BA3009258C6 /* ViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		52438D3C7D964A3BA66C8A38 /* Pods */ = {

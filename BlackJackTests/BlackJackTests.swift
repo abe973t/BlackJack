@@ -37,12 +37,18 @@ class BlackJackTests: XCTestCase {
         
         XCTAssertEqual(chips, chips2cash)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testGenerateDeck() {
+        XCTAssertEqual(viewModel.deck.count, viewModel.deckSize)
     }
-
+    
+    func testDrawCards() {
+        let cards = viewModel.drawCards()
+        XCTAssertNotNil(cards)
+        XCTAssert(cards.0.count == 2)
+        XCTAssert(cards.1.count == 2)
+        
+        // (deck = 52) - (cardsDrawnForFirstPlay = 4)
+        XCTAssert(viewModel.deck.count == 48, "Deck size = \(viewModel.deck.count)")
+    }
 }

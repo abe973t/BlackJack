@@ -12,7 +12,6 @@ class MainView: UIView {
     
     weak var controller: UIViewController?
     var viewModel = ViewModel()
-    var deck = [Card]()
     var chips = [Chip]()
     var dealerHand: [Card]!
     var playerHand: [Card]!

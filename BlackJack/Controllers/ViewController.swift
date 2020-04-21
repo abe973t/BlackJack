@@ -20,7 +20,6 @@ class ViewController: UIViewController {
             - finish UI
             - download chip images
             - show dealer hand w one facing down
-            
      */
 
     override func viewDidLoad() {

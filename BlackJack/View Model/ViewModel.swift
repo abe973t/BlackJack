@@ -10,7 +10,12 @@ import UIKit
 
 class ViewModel {
     weak var view: MainView?
+    var deck = [Card]()
     var deckSize: Int = 52
+    
+    init() {
+        generateDeck()
+    }
     
     func generateDeck() {
         let suites = ["C", "S", "H", "D"]
@@ -22,7 +27,7 @@ class ViewModel {
                 suitesIndex += 1
             }
             
-            view!.deck.append(Card(suite: Suite.init(rawValue: suites[suitesIndex])!, number: cardNumber))
+            deck.append(Card(suite: Suite.init(rawValue: suites[suitesIndex])!, number: cardNumber))
         }
     }
     
@@ -43,21 +48,17 @@ class ViewModel {
     
     func drawCards() -> ([Card], [Card]) {
         var dealer = [Card]()
-        dealer.append((view?.deck.remove(at: Int.random(in: 0..<deckSize)))!)
+        dealer.append((deck.remove(at: Int.random(in: 0..<deckSize))))
         deckSize -= 1
-        dealer.append((view?.deck.remove(at: Int.random(in: 0..<deckSize)))!)
+        dealer.append((deck.remove(at: Int.random(in: 0..<deckSize))))
         deckSize -= 1
         
         var player = [Card]()
-        player.append((view?.deck.remove(at: Int.random(in: 0..<deckSize)))!)
+        player.append((deck.remove(at: Int.random(in: 0..<deckSize))))
         deckSize -= 1
-        player.append((view?.deck.remove(at: Int.random(in: 0..<deckSize)))!)
+        player.append((deck.remove(at: Int.random(in: 0..<deckSize))))
         deckSize -= 1
         
         return (dealer, player)
-    }
-    
-    func presentOptions() {
-        
     }
 }
